@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Scam Warning Signs | Matthew Suggs</title>
+<meta name="description" content="How to spot account takeover, impersonation, fake check and wire scams, and what to do if one reaches you. From a credit union fraud analyst.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Scam Warning Signs | Matthew Suggs">
+<meta property="og:description" content="How to spot account takeover, impersonation, fake check and wire scams, and what to do if one reaches you. From a credit union fraud analyst.">
+<meta name="theme-color" content="#5c3d80">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%235c3d80'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='26' fill='%23ffffff'%3EMS%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Schibsted+Grotesk:wght@500;600;700;800&display=swap">
+<style>
+:root { color-scheme: light; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+
+/* Layout: one left-aligned column read like a case file. Home: name, ledger strip, fraud work, timeline with a mono date gutter. Inner pages reuse the same gutter for steps and paths. Colors carried over from the printed resume. */
+:root {
+  --bg: #f8f7fb;
+  --surface: #ffffff;
+  --ink: #1e1b25;
+  --muted: #5e586a;
+  --rule: #e3dfea;
+  --plum: #5c3d80;
+  --teal: #0d7a72;
+  --plum-soft: #efeaf6;
+  --teal-soft: #e2f1ef;
+  --alert: #a8322b;
+  --alert-soft: #fbeceb;
+  --on-accent: #ffffff;
+
+  --display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #131118; --surface: #1b1821; --ink: #ece8f3; --muted: #a59fb2; --rule: #2d2936;
+    --plum: #c4ade8; --teal: #5cc8bb; --plum-soft: #251e32; --teal-soft: #142e2b;
+    --alert: #ff9a8f; --alert-soft: #3a1d1c; --on-accent: #1b1424;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #131118; --surface: #1b1821; --ink: #ece8f3; --muted: #a59fb2; --rule: #2d2936;
+  --plum: #c4ade8; --teal: #5cc8bb; --plum-soft: #251e32; --teal-soft: #142e2b;
+  --alert: #ff9a8f; --alert-soft: #3a1d1c; --on-accent: #1b1424;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; border-radius: 3px; }
+
+.page {
+  max-width: 58rem;
+  margin: 0 auto;
+  padding-inline: clamp(16px, 5vw, 48px);
+  padding-block: clamp(20px, 4vw, 36px) 40px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(48px, 8vw, 84px);
+}
+
+/* one view per page when all pages share a document (Claude preview) */
+.view { display: flex; flex-direction: column; gap: clamp(48px, 8vw, 84px); }
+
+/* top bar */
+.topbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; }
+.mark { font-family: var(--mono); font-size: .8rem; font-weight: 500; letter-spacing: .08em; color: var(--plum); text-decoration: none; }
+.topbar nav { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; }
+.topbar nav a:not(.btn) { font-size: .875rem; color: var(--muted); text-decoration: none; padding-block: 4px; border-bottom: 2px solid transparent; }
+.topbar nav a:not(.btn):hover { color: var(--plum); }
+.topbar nav a[aria-current="page"] { color: var(--plum); font-weight: 600; border-bottom-color: var(--teal); }
+
+/* buttons */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font: 600 .875rem/1 var(--body);
+  color: var(--on-accent); background: var(--plum);
+  border: 1px solid var(--plum); border-radius: 6px;
+  padding: 10px 14px; text-decoration: none; cursor: pointer;
+  transition: opacity .15s;
+}
+.btn:hover { opacity: .88; }
+.btn.small { font-size: .8rem; padding: 8px 12px; }
+.copy {
+  font: 500 .78rem/1 var(--mono);
+  letter-spacing: .04em;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: border-color .15s, color .15s;
+}
+.copy:hover, .copy[data-state="done"] { border-color: var(--teal); color: var(--teal); }
+
+/* hero */
+.hero { display: flex; flex-direction: column; gap: 14px; }
+.eyebrow { margin: 0; font-family: var(--mono); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+h1 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2.75rem, 10.5vw, 5.5rem);
+  line-height: .95;
+  letter-spacing: -.025em;
+  color: var(--plum);
+  text-wrap: balance;
+}
+h1.title { font-size: clamp(2.2rem, 7vw, 3.9rem); line-height: 1.02; max-width: 16ch; }
+.role { margin: 0; font-family: var(--display); font-weight: 700; font-size: clamp(1.3rem, 3.6vw, 1.85rem); line-height: 1.2; color: var(--teal); }
+.role span { color: var(--muted); font-weight: 500; }
+.lede { margin: 6px 0 0; max-width: 38rem; font-size: 1.075rem; text-wrap: pretty; }
+.byline { margin: 0; font-family: var(--mono); font-size: .8rem; color: var(--muted); }
+
+.action-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; margin-top: 8px; }
+.email { font-family: var(--mono); font-size: .95rem; text-decoration: none; border-bottom: 1px solid var(--rule); overflow-wrap: anywhere; margin-right: 4px; }
+.email:hover { border-color: var(--teal); }
+
+/* ledger strip */
+.ledger {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-block: 1px solid var(--rule);
+  margin-top: calc(-1 * clamp(16px, 3vw, 36px));
+}
+.figure { display: flex; flex-direction: column; gap: 6px; padding: 22px 20px 22px 0; min-width: 0; }
+.figure + .figure { border-left: 1px solid var(--rule); padding-left: 20px; }
+.lbl { font-family: var(--mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.num { font-family: var(--display); font-weight: 700; font-size: clamp(2rem, 5.5vw, 2.9rem); line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums; color: var(--plum); }
+.figure.lead .num { color: var(--teal); font-weight: 800; }
+.note { font-size: .875rem; color: var(--muted); }
+
+/* sections */
+section > h2 {
+  margin: 0 0 4px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--teal);
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: .95rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--plum);
+}
+.intro { margin: 18px 0 0; max-width: 40rem; color: var(--muted); }
+.label { margin: 0 0 12px; font-family: var(--mono); font-weight: 500; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+
+/* tag groups */
+.watch { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 28px 40px; padding-top: 22px; }
+.tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.tags li { padding: 6px 11px; border-radius: 4px; font-size: .9rem; line-height: 1.3; background: var(--plum-soft); }
+.tags.signals li { background: var(--teal-soft); }
+
+/* timeline / step entries with a mono gutter */
+.entry { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 8px 28px; padding-block: 26px; }
+.entry + .entry { border-top: 1px solid var(--rule); }
+.when { font-family: var(--mono); font-size: .82rem; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 5px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.pill { font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--teal); background: var(--teal-soft); padding: 3px 7px; border-radius: 3px; }
+.pill.next { color: var(--plum); background: var(--plum-soft); }
+.entry h3 { margin: 0; font-family: var(--display); font-weight: 700; font-size: 1.4rem; line-height: 1.25; color: var(--ink); text-wrap: balance; }
+.entry p { margin: 8px 0 0; max-width: 40rem; }
+.entry p.org { margin-top: 2px; color: var(--muted); }
+.plan { font-size: .9rem; color: var(--teal); }
+.plan::before { content: "→ "; }
+.bullets { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; max-width: 40rem; }
+.bullets li { position: relative; padding-left: 20px; }
+.bullets li::before { content: "▸"; position: absolute; left: 0; top: .05em; color: var(--teal); }
+.bullets strong { font-weight: 600; }
+.bullets.signs li::before { content: "!"; font-weight: 700; color: var(--alert); left: 4px; }
+.bullets.dos li::before { content: "✓"; color: var(--teal); }
+
+/* definition grids */
+.skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 40px; margin: 0; padding-top: 22px; }
+.skills.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.skills div { min-width: 0; }
+.skills dt { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; }
+.skills dd { margin: 0; }
+
+/* three short principles */
+.principles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 36px; padding-top: 22px; }
+.principles div { min-width: 0; }
+.principles h3 { margin: 0 0 6px; font-family: var(--display); font-weight: 700; font-size: 1.15rem; color: var(--plum); }
+.principles p { margin: 0; }
+
+/* link cards */
+.explore { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding-top: 22px; }
+.card {
+  display: flex; flex-direction: column; gap: 6px; min-width: 0;
+  padding: 20px 22px; border: 1px solid var(--rule); border-radius: 10px;
+  background: var(--surface); text-decoration: none;
+  transition: border-color .15s, transform .15s;
+}
+.card:hover { border-color: var(--teal); transform: translateY(-2px); }
+.card strong { font-family: var(--display); font-size: 1.2rem; font-weight: 700; color: var(--plum); }
+.card span { color: var(--muted); font-size: .95rem; }
+.card em { font-style: normal; font-family: var(--mono); font-size: .78rem; letter-spacing: .04em; color: var(--teal); margin-top: auto; padding-top: 6px; }
+
+/* scam guide */
+.callout { display: flex; flex-direction: column; gap: 12px; padding: clamp(24px, 5vw, 40px); background: var(--plum-soft); border-radius: 10px; }
+.callout .big { margin: 0; font-family: var(--display); font-weight: 700; font-size: clamp(1.35rem, 3.6vw, 1.95rem); line-height: 1.25; color: var(--ink); text-wrap: balance; max-width: 34ch; }
+.callout p { margin: 0; }
+.scam { display: flex; flex-direction: column; gap: 14px; padding-block: 28px; }
+.scam + .scam { border-top: 1px solid var(--rule); }
+.scam h3 { margin: 0; font-family: var(--display); font-weight: 700; font-size: 1.5rem; line-height: 1.2; color: var(--ink); }
+.scam > p { margin: 0; max-width: 42rem; }
+.split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 40px; }
+.split > div { min-width: 0; }
+.split .bullets { margin-top: 0; }
+
+.checker { display: flex; flex-direction: column; gap: 16px; margin-top: 22px; padding: clamp(20px, 4vw, 32px); background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; }
+.checker fieldset { border: 0; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 16px; }
+.checker legend { padding: 0; margin-bottom: 12px; font-weight: 600; }
+.checker label { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; border: 1px solid var(--rule); border-radius: 6px; cursor: pointer; min-width: 0; transition: border-color .15s, background .15s; }
+.checker label:has(input:checked) { border-color: var(--alert); background: var(--alert-soft); }
+.checker input { accent-color: var(--alert); width: 18px; height: 18px; margin: 3px 0 0; flex: none; }
+.result { margin: 0; padding: 14px 16px; border-radius: 6px; background: var(--bg); color: var(--muted); }
+.result[data-level="caution"] { background: var(--plum-soft); color: var(--ink); }
+.result[data-level="stop"] { background: var(--alert-soft); color: var(--ink); }
+.result strong { color: var(--ink); }
+.result[data-level="stop"] strong { color: var(--alert); }
+
+.steps { list-style: none; margin: 0; padding: 22px 0 0; counter-reset: step; display: flex; flex-direction: column; gap: 18px; max-width: 44rem; }
+.steps li { counter-increment: step; display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: 14px; }
+.steps li::before { content: counter(step); display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; font: 500 .85rem/1 var(--mono); color: var(--plum); background: var(--plum-soft); }
+.steps a { color: var(--teal); }
+
+.fineprint { margin: 0; padding-top: 18px; border-top: 1px solid var(--rule); font-size: .875rem; color: var(--muted); max-width: 44rem; }
+
+/* contact */
+.contact { display: flex; flex-direction: column; gap: 12px; padding: clamp(24px, 5vw, 40px); background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; }
+.contact h2 { border: 0; padding: 0; margin: 0; }
+.contact .big { font-family: var(--display); font-weight: 700; font-size: clamp(1.35rem, 5vw, 2.3rem); line-height: 1.15; color: var(--ink); text-decoration: none; overflow-wrap: anywhere; }
+.contact .big:hover { color: var(--teal); }
+.contact p { margin: 0; color: var(--muted); }
+
+footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 20px; padding-top: 20px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: .72rem; color: var(--muted); letter-spacing: .04em; }
+footer nav { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+footer a { text-decoration: none; }
+footer a:hover { color: var(--plum); }
+
+@media (max-width: 640px) {
+  .ledger { grid-template-columns: minmax(0, 1fr); }
+  .figure { padding: 18px 0; }
+  .figure + .figure { border-left: 0; padding-left: 0; border-top: 1px solid var(--rule); }
+  .skills, .skills.three, .principles, .explore, .split, .checker fieldset { grid-template-columns: minmax(0, 1fr); }
+  .entry { grid-template-columns: minmax(0, 1fr); }
+  .when { flex-direction: row; align-items: center; padding-top: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+  .card:hover { transform: none; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="topbar">
+    <a class="mark" href="index.html">M.SUGGS</a>
+    <nav aria-label="Pages">
+      <a href="scams.html" aria-current="page">Scam guide</a>
+      <a href="investigations.html">Investigations</a>
+      <a href="training.html">Training</a>
+      <a href="law.html">Law</a>
+      <a class="btn small" id="resume-nav" href="Matthew_Suggs_Resume.pdf" download data-resume>Resume PDF</a>
+    </nav>
+  </div>
+
+  <header class="hero">
+    <p class="eyebrow">Scam guide</p>
+    <h1 class="title">Spot the scam before the money moves</h1>
+    <p class="lede">These are the scams I see most as a fraud analyst at a credit union. Each one comes with the warning signs to watch for and what to do. Share it with anyone who might need it.</p>
+    <p class="byline">Matthew Suggs · Fraud Analyst</p>
+  </header>
+
+  <div class="callout">
+    <p class="eyebrow">The one rule to remember</p>
+    <p class="big">Your credit union will never call, text or email you to ask for a one-time code or your password, or to tell you to move money to keep it safe.</p>
+    <p>If anyone asks, hang up and call the number on the back of your card.</p>
+  </div>
+
+  <section aria-labelledby="types-h">
+    <h2 id="types-h">Common scams</h2>
+
+    <article class="scam" id="account-takeover">
+      <h3>Account takeover</h3>
+      <p>A scammer gets into your online banking, usually by tricking you into sharing a password or a one-time code. They change your contact details so alerts go to them, then move money out.</p>
+      <div class="split">
+        <div>
+          <p class="label">Warning signs</p>
+          <ul class="bullets signs">
+            <li>A code or password reset you didn't ask for</li>
+            <li>An alert that your email, phone number or address changed</li>
+            <li>A login from a device or place you don't recognize</li>
+            <li>Someone asking you to read back a code to verify your identity</li>
+          </ul>
+        </div>
+        <div>
+          <p class="label">What to do</p>
+          <ul class="bullets dos">
+            <li>Never share a one-time code with anyone, even someone who says they're from your credit union</li>
+            <li>Turn on account alerts and two-step verification</li>
+            <li>Call your credit union right away if you see a change you didn't make</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="scam" id="impersonation">
+      <h3>Impersonation calls and texts</h3>
+      <p>Someone pretends to be your credit union's fraud department, the police, a government agency or tech support. Caller ID can be faked, so the call may look real. They create panic, then ask for codes, gift cards, or a transfer to a new account to keep your money safe.</p>
+      <div class="split">
+        <div>
+          <p class="label">Warning signs</p>
+          <ul class="bullets signs">
+            <li>Pressure to act right now, or a threat of arrest or a frozen account</li>
+            <li>Being told to keep it secret, even from credit union staff</li>
+            <li>Requests for gift cards, cryptocurrency, a wire or a payment app transfer</li>
+            <li>Caller ID that shows your credit union's real number</li>
+          </ul>
+        </div>
+        <div>
+          <p class="label">What to do</p>
+          <ul class="bullets dos">
+            <li>Hang up and call the number on the back of your card or on the official website</li>
+            <li>Never move money because a caller told you to</li>
+            <li>Tell credit union staff the whole story, especially if someone coached you on what to say</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="scam" id="checks">
+      <h3>Fake and stolen checks</h3>
+      <p>You get a check for more than you're owed, from a buyer, a new job, a prize or a mystery shopper offer, and you're asked to send back the difference. Days later the check bounces and you owe the full amount. Checks stolen from the mail can also be washed and rewritten.</p>
+      <div class="split">
+        <div>
+          <p class="label">Warning signs</p>
+          <ul class="bullets signs">
+            <li>A check for more than the agreed amount</li>
+            <li>A request to send part of it back by wire, gift card or payment app</li>
+            <li>A job or prize you didn't apply for that pays up front</li>
+          </ul>
+        </div>
+        <div>
+          <p class="label">What to do</p>
+          <ul class="bullets dos">
+            <li>Remember that money showing as available doesn't mean the check has cleared</li>
+            <li>Never send money back from a check you just deposited</li>
+            <li>Mail checks inside the post office, not from your home mailbox</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="scam" id="wires">
+      <h3>Wire and payment app scams</h3>
+      <p>Wires and payment app transfers move money fast and are very hard to get back, so scammers push for them. Common versions are an online romance that turns into money trouble, an investment with guaranteed returns, and fake wiring instructions right before a home closing.</p>
+      <div class="split">
+        <div>
+          <p class="label">Warning signs</p>
+          <ul class="bullets signs">
+            <li>Someone you've only met online needs money</li>
+            <li>Guaranteed returns, or pressure to invest in crypto</li>
+            <li>Wiring instructions that change by email at the last minute</li>
+          </ul>
+        </div>
+        <div>
+          <p class="label">What to do</p>
+          <ul class="bullets dos">
+            <li>Confirm wiring instructions by calling a number you already trust</li>
+            <li>Never send money to someone you haven't met in person</li>
+            <li>Talk it over with someone you trust before sending a large amount</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section aria-labelledby="check-h">
+    <h2 id="check-h">Red flag check</h2>
+    <form class="checker" id="flag-check" novalidate>
+      <fieldset>
+        <legend>Got a call, text or email that felt off? Tick anything that happened.</legend>
+        <label for="f-contact"><input type="checkbox" id="f-contact"> They contacted me first, out of the blue</label>
+        <label for="f-urgent"><input type="checkbox" id="f-urgent" data-serious> They said it was urgent or made a threat</label>
+        <label for="f-code"><input type="checkbox" id="f-code" data-serious> They asked for a code, password or PIN</label>
+        <label for="f-money"><input type="checkbox" id="f-money" data-serious> They asked me to move money, buy gift cards or send crypto</label>
+        <label for="f-secret"><input type="checkbox" id="f-secret" data-serious> They told me to keep it secret or what to say</label>
+        <label for="f-check"><input type="checkbox" id="f-check" data-serious> They sent a check and asked for some of it back</label>
+      </fieldset>
+      <p class="result" id="flag-result" role="status" aria-live="polite" data-level="none">Tick any box above to see what it means.</p>
+    </form>
+  </section>
+
+  <section aria-labelledby="after-h">
+    <h2 id="after-h">If it already happened</h2>
+    <ol class="steps">
+      <li><span><strong>Call your credit union or bank right away</strong>, using the number on your card. The sooner they know, the better the chance of stopping the money.</span></li>
+      <li><span><strong>Change your passwords</strong> for online banking and for the email account tied to it.</span></li>
+      <li><span><strong>Report it to the FTC</strong> at <a href="https://reportfraud.ftc.gov/" target="_blank" rel="noopener">ReportFraud.ftc.gov</a>. If your identity was stolen, use <a href="https://www.identitytheft.gov/" target="_blank" rel="noopener">IdentityTheft.gov</a> to get a recovery plan.</span></li>
+      <li><span><strong>Report internet scams to the FBI</strong> at <a href="https://www.ic3.gov/" target="_blank" rel="noopener">ic3.gov</a>.</span></li>
+      <li><span><strong>Consider freezing your credit</strong> at Equifax, Experian and TransUnion. It's free, and it stops anyone opening new credit in your name.</span></li>
+    </ol>
+  </section>
+
+  <p class="fineprint">This guide is general education. It doesn't describe real cases and isn't advice from my employer. If you think you've been scammed, contact your financial institution first.</p>
+
+  <section aria-labelledby="next-h">
+    <h2 id="next-h">Keep reading</h2>
+    <div class="explore">
+      <a class="card" href="investigations.html">
+        <strong>How I investigate</strong>
+        <span>What happens behind the scenes after fraud is flagged.</span>
+        <em>See the process →</em>
+      </a>
+      <a class="card" href="training.html">
+        <strong>Training</strong>
+        <span>How I help frontline staff catch scams in progress.</span>
+        <em>See the training →</em>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Matthew Suggs</span>
+    <nav aria-label="Footer"><a href="index.html">Home</a><a href="scams.html">Scam guide</a><a href="investigations.html">Investigations</a><a href="training.html">Training</a><a href="law.html">Law</a></nav>
+  </footer>
+</div>
+
+<script>
+(function () {
+  function flash(el, msg, label) {
+    el.textContent = msg;
+    el.setAttribute("data-state", "done");
+    setTimeout(function () { el.textContent = label; el.removeAttribute("data-state"); }, 2000);
+  }
+
+  // Copy email buttons
+  document.querySelectorAll("[data-copy]").forEach(function (btn) {
+    var label = btn.textContent;
+    btn.addEventListener("click", function () {
+      var text = btn.getAttribute("data-copy");
+      var selectFallback = function () {
+        var el = document.getElementById(btn.getAttribute("data-target"));
+        if (el) {
+          var range = document.createRange();
+          range.selectNodeContents(el);
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+        }
+        flash(btn, "Selected, copy it now", label);
+      };
+      try {
+        navigator.clipboard.writeText(text).then(function () { flash(btn, "Copied", label); }, selectFallback);
+      } catch (e) {
+        selectFallback();
+      }
+    });
+  });
+
+  // Resume download. On a normal website the link downloads the PDF by itself.
+  // Inside the Claude viewer, plain download links do nothing, so ask the viewer to save it.
+  var links = Array.prototype.slice.call(document.querySelectorAll("[data-resume]"));
+  var c = window.claude;
+  if (!links.length || !c || typeof c.use !== "function") return;
+  var ready = c.use("downloads");
+  ready.then(function (dl) {
+    if (!dl) links.forEach(function (a) { a.hidden = true; });
+  });
+  links.forEach(function (a) {
+    var label = a.textContent;
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      ready.then(function (dl) {
+        if (!dl) return;
+        fetch(a.getAttribute("href"))
+          .then(function (r) {
+            if (!r.ok) throw { code: "unavailable" };
+            return r.blob();
+          })
+          .then(function (blob) {
+            return dl.save({ filename: "Matthew_Suggs_Resume.pdf", data: blob });
+          })
+          .then(function () {
+            flash(a, "Saved", label);
+          }, function (err) {
+            var code = err && err.code;
+            if (code === "declined") return;
+            if (code === "rate_limited") { flash(a, "Try again in a moment", label); return; }
+            flash(a, "Download unavailable here", label);
+          });
+      });
+    });
+  });
+})();
+</script>
+<script>
+(function () {
+  var form = document.getElementById("flag-check");
+  if (!form) return;
+  var out = document.getElementById("flag-result");
+  form.addEventListener("submit", function (e) { e.preventDefault(); });
+  function update() {
+    var any = form.querySelectorAll("input:checked").length;
+    var serious = form.querySelectorAll("input[data-serious]:checked").length;
+    if (serious) {
+      out.setAttribute("data-level", "stop");
+      out.innerHTML = "<strong>Stop. This is a scam warning sign.</strong> Don't send money or share any codes. Hang up and call your credit union using the number on your card.";
+    } else if (any) {
+      out.setAttribute("data-level", "caution");
+      out.innerHTML = "<strong>Verify before you do anything.</strong> Unexpected contact alone doesn't prove a scam, so call back using a number you already trust.";
+    } else {
+      out.setAttribute("data-level", "none");
+      out.textContent = "Tick any box above to see what it means.";
+    }
+  }
+  form.addEventListener("change", update);
+  update();
+})();
+</script>
+</body>
+</html>

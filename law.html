@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Law &amp; Compliance | Matthew Suggs</title>
+<meta name="description" content="Matthew Suggs' path from economics to a Master of Legal Studies at OU College of Law, and the regulations behind his fraud work.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Law &amp; Compliance | Matthew Suggs">
+<meta property="og:description" content="Matthew Suggs' path from economics to a Master of Legal Studies at OU College of Law, and the regulations behind his fraud work.">
+<meta name="theme-color" content="#5c3d80">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%235c3d80'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='26' fill='%23ffffff'%3EMS%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Schibsted+Grotesk:wght@500;600;700;800&display=swap">
+<style>
+:root { color-scheme: light; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+
+/* Layout: one left-aligned column read like a case file. Home: name, ledger strip, fraud work, timeline with a mono date gutter. Inner pages reuse the same gutter for steps and paths. Colors carried over from the printed resume. */
+:root {
+  --bg: #f8f7fb;
+  --surface: #ffffff;
+  --ink: #1e1b25;
+  --muted: #5e586a;
+  --rule: #e3dfea;
+  --plum: #5c3d80;
+  --teal: #0d7a72;
+  --plum-soft: #efeaf6;
+  --teal-soft: #e2f1ef;
+  --alert: #a8322b;
+  --alert-soft: #fbeceb;
+  --on-accent: #ffffff;
+
+  --display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #131118; --surface: #1b1821; --ink: #ece8f3; --muted: #a59fb2; --rule: #2d2936;
+    --plum: #c4ade8; --teal: #5cc8bb; --plum-soft: #251e32; --teal-soft: #142e2b;
+    --alert: #ff9a8f; --alert-soft: #3a1d1c; --on-accent: #1b1424;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #131118; --surface: #1b1821; --ink: #ece8f3; --muted: #a59fb2; --rule: #2d2936;
+  --plum: #c4ade8; --teal: #5cc8bb; --plum-soft: #251e32; --teal-soft: #142e2b;
+  --alert: #ff9a8f; --alert-soft: #3a1d1c; --on-accent: #1b1424;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; border-radius: 3px; }
+
+.page {
+  max-width: 58rem;
+  margin: 0 auto;
+  padding-inline: clamp(16px, 5vw, 48px);
+  padding-block: clamp(20px, 4vw, 36px) 40px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(48px, 8vw, 84px);
+}
+
+/* one view per page when all pages share a document (Claude preview) */
+.view { display: flex; flex-direction: column; gap: clamp(48px, 8vw, 84px); }
+
+/* top bar */
+.topbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; }
+.mark { font-family: var(--mono); font-size: .8rem; font-weight: 500; letter-spacing: .08em; color: var(--plum); text-decoration: none; }
+.topbar nav { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; }
+.topbar nav a:not(.btn) { font-size: .875rem; color: var(--muted); text-decoration: none; padding-block: 4px; border-bottom: 2px solid transparent; }
+.topbar nav a:not(.btn):hover { color: var(--plum); }
+.topbar nav a[aria-current="page"] { color: var(--plum); font-weight: 600; border-bottom-color: var(--teal); }
+
+/* buttons */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font: 600 .875rem/1 var(--body);
+  color: var(--on-accent); background: var(--plum);
+  border: 1px solid var(--plum); border-radius: 6px;
+  padding: 10px 14px; text-decoration: none; cursor: pointer;
+  transition: opacity .15s;
+}
+.btn:hover { opacity: .88; }
+.btn.small { font-size: .8rem; padding: 8px 12px; }
+.copy {
+  font: 500 .78rem/1 var(--mono);
+  letter-spacing: .04em;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: border-color .15s, color .15s;
+}
+.copy:hover, .copy[data-state="done"] { border-color: var(--teal); color: var(--teal); }
+
+/* hero */
+.hero { display: flex; flex-direction: column; gap: 14px; }
+.eyebrow { margin: 0; font-family: var(--mono); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+h1 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2.75rem, 10.5vw, 5.5rem);
+  line-height: .95;
+  letter-spacing: -.025em;
+  color: var(--plum);
+  text-wrap: balance;
+}
+h1.title { font-size: clamp(2.2rem, 7vw, 3.9rem); line-height: 1.02; max-width: 16ch; }
+.role { margin: 0; font-family: var(--display); font-weight: 700; font-size: clamp(1.3rem, 3.6vw, 1.85rem); line-height: 1.2; color: var(--teal); }
+.role span { color: var(--muted); font-weight: 500; }
+.lede { margin: 6px 0 0; max-width: 38rem; font-size: 1.075rem; text-wrap: pretty; }
+.byline { margin: 0; font-family: var(--mono); font-size: .8rem; color: var(--muted); }
+
+.action-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; margin-top: 8px; }
+.email { font-family: var(--mono); font-size: .95rem; text-decoration: none; border-bottom: 1px solid var(--rule); overflow-wrap: anywhere; margin-right: 4px; }
+.email:hover { border-color: var(--teal); }
+
+/* ledger strip */
+.ledger {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-block: 1px solid var(--rule);
+  margin-top: calc(-1 * clamp(16px, 3vw, 36px));
+}
+.figure { display: flex; flex-direction: column; gap: 6px; padding: 22px 20px 22px 0; min-width: 0; }
+.figure + .figure { border-left: 1px solid var(--rule); padding-left: 20px; }
+.lbl { font-family: var(--mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.num { font-family: var(--display); font-weight: 700; font-size: clamp(2rem, 5.5vw, 2.9rem); line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums; color: var(--plum); }
+.figure.lead .num { color: var(--teal); font-weight: 800; }
+.note { font-size: .875rem; color: var(--muted); }
+
+/* sections */
+section > h2 {
+  margin: 0 0 4px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--teal);
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: .95rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--plum);
+}
+.intro { margin: 18px 0 0; max-width: 40rem; color: var(--muted); }
+.label { margin: 0 0 12px; font-family: var(--mono); font-weight: 500; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+
+/* tag groups */
+.watch { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 28px 40px; padding-top: 22px; }
+.tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.tags li { padding: 6px 11px; border-radius: 4px; font-size: .9rem; line-height: 1.3; background: var(--plum-soft); }
+.tags.signals li { background: var(--teal-soft); }
+
+/* timeline / step entries with a mono gutter */
+.entry { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 8px 28px; padding-block: 26px; }
+.entry + .entry { border-top: 1px solid var(--rule); }
+.when { font-family: var(--mono); font-size: .82rem; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 5px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.pill { font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--teal); background: var(--teal-soft); padding: 3px 7px; border-radius: 3px; }
+.pill.next { color: var(--plum); background: var(--plum-soft); }
+.entry h3 { margin: 0; font-family: var(--display); font-weight: 700; font-size: 1.4rem; line-height: 1.25; color: var(--ink); text-wrap: balance; }
+.entry p { margin: 8px 0 0; max-width: 40rem; }
+.entry p.org { margin-top: 2px; color: var(--muted); }
+.plan { font-size: .9rem; color: var(--teal); }
+.plan::before { content: "→ "; }
+.bullets { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; max-width: 40rem; }
+.bullets li { position: relative; padding-left: 20px; }
+.bullets li::before { content: "▸"; position: absolute; left: 0; top: .05em; color: var(--teal); }
+.bullets strong { font-weight: 600; }
+.bullets.signs li::before { content: "!"; font-weight: 700; color: var(--alert); left: 4px; }
+.bullets.dos li::before { content: "✓"; color: var(--teal); }
+
+/* definition grids */
+.skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 40px; margin: 0; padding-top: 22px; }
+.skills.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.skills div { min-width: 0; }
+.skills dt { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; }
+.skills dd { margin: 0; }
+
+/* three short principles */
+.principles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 36px; padding-top: 22px; }
+.principles div { min-width: 0; }
+.principles h3 { margin: 0 0 6px; font-family: var(--display); font-weight: 700; font-size: 1.15rem; color: var(--plum); }
+.principles p { margin: 0; }
+
+/* link cards */
+.explore { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding-top: 22px; }
+.card {
+  display: flex; flex-direction: column; gap: 6px; min-width: 0;
+  padding: 20px 22px; border: 1px solid var(--rule); border-radius: 10px;
+  background: var(--surface); text-decoration: none;
+  transition: border-color .15s, transform .15s;
+}
+.card:hover { border-color: var(--teal); transform: translateY(-2px); }
+.card strong { font-family: var(--display); font-size: 1.2rem; font-weight: 700; color: var(--plum); }
+.card span { color: var(--muted); font-size: .95rem; }
+.card em { font-style: normal; font-family: var(--mono); font-size: .78rem; letter-spacing: .04em; color: var(--teal); margin-top: auto; padding-top: 6px; }
+
+/* scam guide */
+.callout { display: flex; flex-direction: column; gap: 12px; padding: clamp(24px, 5vw, 40px); background: var(--plum-soft); border-radius: 10px; }
+.callout .big { margin: 0; font-family: var(--display); font-weight: 700; font-size: clamp(1.35rem, 3.6vw, 1.95rem); line-height: 1.25; color: var(--ink); text-wrap: balance; max-width: 34ch; }
+.callout p { margin: 0; }
+.scam { display: flex; flex-direction: column; gap: 14px; padding-block: 28px; }
+.scam + .scam { border-top: 1px solid var(--rule); }
+.scam h3 { margin: 0; font-family: var(--display); font-weight: 700; font-size: 1.5rem; line-height: 1.2; color: var(--ink); }
+.scam > p { margin: 0; max-width: 42rem; }
+.split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 40px; }
+.split > div { min-width: 0; }
+.split .bullets { margin-top: 0; }
+
+.checker { display: flex; flex-direction: column; gap: 16px; margin-top: 22px; padding: clamp(20px, 4vw, 32px); background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; }
+.checker fieldset { border: 0; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 16px; }
+.checker legend { padding: 0; margin-bottom: 12px; font-weight: 600; }
+.checker label { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; border: 1px solid var(--rule); border-radius: 6px; cursor: pointer; min-width: 0; transition: border-color .15s, background .15s; }
+.checker label:has(input:checked) { border-color: var(--alert); background: var(--alert-soft); }
+.checker input { accent-color: var(--alert); width: 18px; height: 18px; margin: 3px 0 0; flex: none; }
+.result { margin: 0; padding: 14px 16px; border-radius: 6px; background: var(--bg); color: var(--muted); }
+.result[data-level="caution"] { background: var(--plum-soft); color: var(--ink); }
+.result[data-level="stop"] { background: var(--alert-soft); color: var(--ink); }
+.result strong { color: var(--ink); }
+.result[data-level="stop"] strong { color: var(--alert); }
+
+.steps { list-style: none; margin: 0; padding: 22px 0 0; counter-reset: step; display: flex; flex-direction: column; gap: 18px; max-width: 44rem; }
+.steps li { counter-increment: step; display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: 14px; }
+.steps li::before { content: counter(step); display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; font: 500 .85rem/1 var(--mono); color: var(--plum); background: var(--plum-soft); }
+.steps a { color: var(--teal); }
+
+.fineprint { margin: 0; padding-top: 18px; border-top: 1px solid var(--rule); font-size: .875rem; color: var(--muted); max-width: 44rem; }
+
+/* contact */
+.contact { display: flex; flex-direction: column; gap: 12px; padding: clamp(24px, 5vw, 40px); background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; }
+.contact h2 { border: 0; padding: 0; margin: 0; }
+.contact .big { font-family: var(--display); font-weight: 700; font-size: clamp(1.35rem, 5vw, 2.3rem); line-height: 1.15; color: var(--ink); text-decoration: none; overflow-wrap: anywhere; }
+.contact .big:hover { color: var(--teal); }
+.contact p { margin: 0; color: var(--muted); }
+
+footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 20px; padding-top: 20px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: .72rem; color: var(--muted); letter-spacing: .04em; }
+footer nav { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+footer a { text-decoration: none; }
+footer a:hover { color: var(--plum); }
+
+@media (max-width: 640px) {
+  .ledger { grid-template-columns: minmax(0, 1fr); }
+  .figure { padding: 18px 0; }
+  .figure + .figure { border-left: 0; padding-left: 0; border-top: 1px solid var(--rule); }
+  .skills, .skills.three, .principles, .explore, .split, .checker fieldset { grid-template-columns: minmax(0, 1fr); }
+  .entry { grid-template-columns: minmax(0, 1fr); }
+  .when { flex-direction: row; align-items: center; padding-top: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+  .card:hover { transform: none; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="topbar">
+    <a class="mark" href="index.html">M.SUGGS</a>
+    <nav aria-label="Pages">
+      <a href="scams.html">Scam guide</a>
+      <a href="investigations.html">Investigations</a>
+      <a href="training.html">Training</a>
+      <a href="law.html" aria-current="page">Law</a>
+      <a class="btn small" id="resume-nav" href="Matthew_Suggs_Resume.pdf" download data-resume>Resume PDF</a>
+    </nav>
+  </div>
+
+  <header class="hero">
+    <p class="eyebrow">Law &amp; compliance</p>
+    <h1 class="title">Where fraud work meets the law</h1>
+    <p class="lede">Every case I work rests on a regulation. I'm earning a Master of Legal Studies at the University of Oklahoma College of Law to understand those rules in depth, and I plan to pursue a Juris Doctor next.</p>
+  </header>
+
+  <section aria-labelledby="path-h">
+    <h2 id="path-h">My path</h2>
+
+    <article class="entry">
+      <div class="when"><span>December 2024</span></div>
+      <div>
+        <h3>Bachelor of Business Administration, Economics</h3>
+        <p class="org">University of Oklahoma · GPA 3.3</p>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="when"><span>Expected 2028</span><span class="pill">In progress</span></div>
+      <div>
+        <h3>Master of Legal Studies (MLS)</h3>
+        <p class="org">University of Oklahoma College of Law · General Legal Studies</p>
+        <p>A legal foundation for the compliance and investigation work I do every day.</p>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="when"><span>Planned</span><span class="pill next">Next</span></div>
+      <div>
+        <h3>Juris Doctor (JD)</h3>
+        <p>The next step after the MLS.</p>
+      </div>
+    </article>
+  </section>
+
+  <section aria-labelledby="rules-h">
+    <h2 id="rules-h">The rules behind my daily work</h2>
+    <dl class="skills">
+      <div>
+        <dt>Bank Secrecy Act / AML</dt>
+        <dd>Requires financial institutions to help detect and report money laundering and other financial crime, including through Suspicious Activity Reports.</dd>
+      </div>
+      <div>
+        <dt>Regulation Z</dt>
+        <dd>Carries out the Truth in Lending Act, which requires clear disclosure of loan costs and terms. I worked with it daily as a loan officer.</dd>
+      </div>
+      <div>
+        <dt>ECOA</dt>
+        <dd>The Equal Credit Opportunity Act bars discrimination in any part of a credit decision.</dd>
+      </div>
+      <div>
+        <dt>NCUA</dt>
+        <dd>The National Credit Union Administration regulates federal credit unions and insures member deposits at federally insured credit unions.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section aria-labelledby="ahead-h">
+    <h2 id="ahead-h">Where I'm headed</h2>
+    <p class="intro">I'm building toward work where fraud investigation, compliance and law overlap. The MLS gives me the legal foundation now, while my daily work keeps it practical.</p>
+  </section>
+
+  <section aria-labelledby="next-h">
+    <h2 id="next-h">Keep reading</h2>
+    <div class="explore">
+      <a class="card" href="investigations.html">
+        <strong>How I investigate</strong>
+        <span>Where these rules show up in a real case workflow.</span>
+        <em>See the process →</em>
+      </a>
+      <a class="card" href="index.html#experience">
+        <strong>Experience</strong>
+        <span>My work as a Fraud Analyst and Loan Officer.</span>
+        <em>See my experience →</em>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Matthew Suggs</span>
+    <nav aria-label="Footer"><a href="index.html">Home</a><a href="scams.html">Scam guide</a><a href="investigations.html">Investigations</a><a href="training.html">Training</a><a href="law.html">Law</a></nav>
+  </footer>
+</div>
+
+<script>
+(function () {
+  function flash(el, msg, label) {
+    el.textContent = msg;
+    el.setAttribute("data-state", "done");
+    setTimeout(function () { el.textContent = label; el.removeAttribute("data-state"); }, 2000);
+  }
+
+  // Copy email buttons
+  document.querySelectorAll("[data-copy]").forEach(function (btn) {
+    var label = btn.textContent;
+    btn.addEventListener("click", function () {
+      var text = btn.getAttribute("data-copy");
+      var selectFallback = function () {
+        var el = document.getElementById(btn.getAttribute("data-target"));
+        if (el) {
+          var range = document.createRange();
+          range.selectNodeContents(el);
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+        }
+        flash(btn, "Selected, copy it now", label);
+      };
+      try {
+        navigator.clipboard.writeText(text).then(function () { flash(btn, "Copied", label); }, selectFallback);
+      } catch (e) {
+        selectFallback();
+      }
+    });
+  });
+
+  // Resume download. On a normal website the link downloads the PDF by itself.
+  // Inside the Claude viewer, plain download links do nothing, so ask the viewer to save it.
+  var links = Array.prototype.slice.call(document.querySelectorAll("[data-resume]"));
+  var c = window.claude;
+  if (!links.length || !c || typeof c.use !== "function") return;
+  var ready = c.use("downloads");
+  ready.then(function (dl) {
+    if (!dl) links.forEach(function (a) { a.hidden = true; });
+  });
+  links.forEach(function (a) {
+    var label = a.textContent;
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      ready.then(function (dl) {
+        if (!dl) return;
+        fetch(a.getAttribute("href"))
+          .then(function (r) {
+            if (!r.ok) throw { code: "unavailable" };
+            return r.blob();
+          })
+          .then(function (blob) {
+            return dl.save({ filename: "Matthew_Suggs_Resume.pdf", data: blob });
+          })
+          .then(function () {
+            flash(a, "Saved", label);
+          }, function (err) {
+            var code = err && err.code;
+            if (code === "declined") return;
+            if (code === "rate_limited") { flash(a, "Try again in a moment", label); return; }
+            flash(a, "Download unavailable here", label);
+          });
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
